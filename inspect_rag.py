@@ -28,7 +28,7 @@ def run_inspection():
     
     for name, db in stores.items():
         print("=" * 100)
-        print(f"VECTOR STORE: {name} (Evaluating k=3)")
+        print(f"VECTOR STORE: {name} (Evaluating k=5)")
         print("=" * 100)
         
         hit_count = 0
@@ -38,8 +38,8 @@ def run_inspection():
             question = q["question"]
             expected = q["expected_document"]
             
-            # Retrieve top 3
-            docs = search(db, question, k=3)
+            # Retrieve top 5
+            docs = search(db, question, k=5)
             
             # Check if expected document is in retrieved docs
             retrieved_sources = [d.metadata.get("source_file", "") for d in docs]
@@ -56,7 +56,7 @@ def run_inspection():
             prompt = f"""
 You are an HR Policy Assistant.
 
-Answer ONLY using the context below.
+Answer ONLY using the context below. Keep your answers concise and directly to the point.
 
 If the answer is not present, reply:
 
@@ -76,12 +76,12 @@ Question:
                 
             print(f"\nQID: {qid} | Question: {question}")
             print(f"Expected Doc: {expected}")
-            print(f"Retrieved Top 3: {retrieved_sources}")
-            print(f"Hit @ 3: {'PASS' if hit else 'FAIL'}")
+            print(f"Retrieved Top 5: {retrieved_sources}")
+            print(f"Hit @ 5: {'PASS' if hit else 'FAIL'}")
             print(f"LLM Answer:\n{answer}")
             print("-" * 50)
             
-        print(f"\n{name} Hit-rate@3: {hit_count}/{len(questions)} ({hit_count/len(questions)*100:.1f}%)\n")
+        print(f"\n{name} Hit-rate@5: {hit_count}/{len(questions)} ({hit_count/len(questions)*100:.1f}%)\n")
 
 if __name__ == "__main__":
     run_inspection()

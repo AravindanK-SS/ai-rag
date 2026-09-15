@@ -1,32 +1,25 @@
 from langchain_chroma import Chroma
+
 from sentence_transformers import CrossEncoder
-
-_reranker = None
-
-def get_reranker():
-    global _reranker
-    if _reranker is None:
-        _reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
-    return _reranker
 
 def search(vectorstore, query, k=5):
     """
-    Search vectorstore and rerank results using a Cross-Encoder.
+    Search vectorstore using similarity search and re-rank with CrossEncoder.
     """
-    # 1. Retrieve a larger candidate pool (5x k, minimum 15)
-    candidate_k = max(k * 5, 15)
-    candidates = vectorstore.similarity_search(query, k=candidate_k)
+    # Fetch more candidates initially for re-ranking
+    candidates = vectorstore.similarity_search(query, k=k*3)
     
-    if not candidates:
-        return []
-        
-    # 2. Score candidate chunks using the Cross-Encoder
-    reranker = get_reranker()
+    # Initialize CrossEncoder
+    cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
+    
+    # Create pairs for scoring
     pairs = [[query, doc.page_content] for doc in candidates]
-    scores = reranker.predict(pairs)
+    scores = cross_encoder.predict(pairs)
     
-    # 3. Sort candidates by score and return the top k
-    scored_docs = list(zip(candidates, scores))
-    scored_docs.sort(key=lambda x: x[1], reverse=True)
+    # Attach scores and sort
+    for score, doc in zip(scores, candidates):
+        doc.metadata['cross_encoder_score'] = score
+        
+    reranked_candidates = sorted(candidates, key=lambda x: x.metadata['cross_encoder_score'], reverse=True)
     
-    return [doc for doc, score in scored_docs[:k]]
+    return reranked_candidates[:k]
