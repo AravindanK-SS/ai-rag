@@ -3,6 +3,8 @@ import socketserver
 import json
 import urllib.parse
 import os
+from dotenv import load_dotenv
+load_dotenv()
 from src.embedding import get_embedding_model
 from src.retrieval import search
 from src.llm import get_llm
@@ -51,7 +53,9 @@ Question:
 {question}
 """
             try:
-                response = llm.invoke(prompt)
+                from langfuse.langchain import CallbackHandler
+                langfuse_handler = CallbackHandler()
+                response = llm.invoke(prompt, config={"callbacks": [langfuse_handler]})
                 answer = response.content
             except Exception as e:
                 answer = str(e)
