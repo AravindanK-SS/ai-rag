@@ -38,7 +38,7 @@ for q in questions:
             for d in docs
         )
 
-        results[name] = "PASS" if found else "FAIL"
+        results[name] = "✅" if found else "❌"
 
     print(
         f"{q['question'][:40]:40} "
