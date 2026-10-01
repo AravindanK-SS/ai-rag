@@ -3,6 +3,10 @@
     "policy_server": {
       "command": "python",
       "args": ["mcp_servers/policy_server.py"]
+    },
+    "hris_server": {
+      "command": "python",
+      "args": ["mcp_servers/hris_server.py"]
     }
   }
 }
