@@ -22,3 +22,6 @@ __pycache__/
 
 # Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints
+
+# Generated gateway audit trail
+audit.log

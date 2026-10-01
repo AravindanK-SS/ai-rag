@@ -16,6 +16,8 @@ SERVER_INFO = {
 }
 
 EARLIEST_EFFECTIVE_DATE = "2024-04-01"
+# The handbook is context the app attaches (a resource), not something the model must fetch via a tool.
+HANDBOOK_URI = "policy://handbook/current"
 
 POLICIES = {
     "annual leave": "Annual Leave Policy (Effective 2024-04-01): Full-time employees accrue 1.5 days per month up to 18 days per year. Unused leave up to 5 days can carry forward.",
@@ -132,7 +134,8 @@ def process_message(msg: dict, legacy_mode: bool = False) -> dict:
                 "capabilities": {
                     "tools": {
                         "listChanged": False
-                    }
+                    },
+                    "resources": {}
                 },
                 "serverInfo": SERVER_INFO
             }
@@ -140,6 +143,32 @@ def process_message(msg: dict, legacy_mode: bool = False) -> dict:
 
     elif method == "notifications/initialized":
         return None
+
+    elif method == "resources/list":
+        return {
+            "jsonrpc": "2.0",
+            "id": msg_id,
+            "result": {"resources": [{
+                "uri": HANDBOOK_URI,
+                "name": "HR Handbook (current policy versions)",
+                "mimeType": "text/plain"
+            }]}
+        }
+
+    elif method == "resources/read":
+        uri = msg.get("params", {}).get("uri")
+        if uri != HANDBOOK_URI:
+            return {"jsonrpc": "2.0", "id": msg_id,
+                    "error": {"code": -32002, "message": f"Resource not found: {uri}"}}
+        return {
+            "jsonrpc": "2.0",
+            "id": msg_id,
+            "result": {"contents": [{
+                "uri": HANDBOOK_URI,
+                "mimeType": "text/plain",
+                "text": "\n".join(POLICIES.values())
+            }]}
+        }
 
     elif method == "tools/list":
         return {

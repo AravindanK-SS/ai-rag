@@ -107,6 +107,17 @@ class MCPClient:
         })
         return res.get("result", {})
 
+    def list_resources(self) -> List[Dict[str, Any]]:
+        if "resources" not in self.capabilities:
+            return []
+        res = self.send_request("resources/list")
+        return res.get("result", {}).get("resources", [])
+
+    def read_resource(self, uri: str) -> str:
+        res = self.send_request("resources/read", {"uri": uri})
+        contents = res.get("result", {}).get("contents", [])
+        return "\n".join(c.get("text", "") for c in contents)
+
     def stop(self):
         if self.process and self.process.poll() is None:
             try:
