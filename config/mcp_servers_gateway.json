@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "gateway": {
+      "command": "python",
+      "args": ["mcp_servers/gateway.py"],
+      "env": { "GATEWAY_TOKEN": "SCOPED_LEAVE_ONLY_TOKEN" }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+Tool count: 2 before -> 4 after (taken from tools/list)
+
+Before (config/mcp_servers_single.json): 2
+Tools: ['search_policy', 'get_policy_summary']
+
+After (config/mcp_servers.json): 4
+Tools: ['search_policy', 'get_policy_summary', 'get_employee_grade_band', 'get_accrued_leave_balance']

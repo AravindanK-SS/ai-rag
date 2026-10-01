@@ -1,0 +1,15 @@
+diff --git a/config/mcp_servers.json b/config/mcp_servers.json
+index 86c12df..5534f8c 100644
+--- a/config/mcp_servers.json
++++ b/config/mcp_servers.json
+@@ -3,6 +3,10 @@
+     "policy_server": {
+       "command": "python",
+       "args": ["mcp_servers/policy_server.py"]
++    },
++    "hris_server": {
++      "command": "python",
++      "args": ["mcp_servers/hris_server.py"]
+     }
+   }
+ }
