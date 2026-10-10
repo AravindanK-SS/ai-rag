@@ -1,0 +1,22 @@
+Q1 single PASS   16.7s  1042 tok  The answer directly addresses the question about the policy for annual leave.
+Q1 multi  PASS   45.3s  1635 tok  The answer directly addresses the question about the policy for annual leave.
+Q2 multi  FAIL   27.2s  1344 tok  false refusal on a retrieval case
+Q2 single FAIL    9.8s   954 tok  false refusal on a retrieval case
+Q3 single PASS   11.8s  1008 tok  SeMT employees deployed to SeMTs are eligible for internet reimbursement.
+Q3 multi  FAIL   52.1s  2516 tok  Employee 'NONE' not found in HRIS records.
+Q4 multi  PASS   39.7s  1657 tok  The answer directly addresses the question.
+Q4 single PASS   14.2s  1065 tok  The answer directly addresses the question.
+Q5 single PASS   14.6s  1019 tok  The answer directly addresses the question.
+Q5 multi  PASS   52.3s  2546 tok  The evidence supports the claim that educational leave with pay is available for certain purposes.
+Q6 multi  PASS   41.7s  1624 tok  The employee's repeated tardiness may be considered a pattern of behavior.
+Q6 single PASS   14.8s  1068 tok  the answer directly addresses the question
+Q7 single FAIL   13.2s  1107 tok  expected doc not retrieved (got ['HR Policy Handbook.pdf', 'HR Policy Service Rules.pdf'])
+Q7 multi  FAIL   32.3s  1544 tok  expected doc not retrieved (got ['HR Policy Handbook.pdf', 'HR Policy Service Rules.pdf'])
+Q8 multi  FAIL   46.1s  2395 tok  answered instead of refusing
+Q8 single FAIL   22.5s  1087 tok  answered instead of refusing
+Q9 single PASS   12.3s  1014 tok  The policy states employees must present a professional image at all times.
+Q9 multi  FAIL   29.1s  1383 tok  false refusal on a retrieval case
+Q10 multi  PASS   17.0s  1119 tok  correct refusal
+Q10 single PASS   10.1s   984 tok  correct refusal
+
+Context re-send multiplier: 1.7x (multi 17763 tokens / single 10348 tokens). Largest share: orchestrator -> policy_worker, 58% of all multi-arm tokens.

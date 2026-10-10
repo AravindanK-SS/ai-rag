@@ -1,0 +1,1077 @@
+{
+ "raw": [
+  {
+   "case": "Q1",
+   "arm": "single",
+   "question": "What is the policy for annual leave?",
+   "answer": "According to the Attendance HR Policies for Employees, employees are entitled to use their accrued annual leave for vacation, sick leave, or personal time off. The policy states that advanced annual leave can be approved in exceptional circumstances, but it cannot be used for illnesses, injuries, or personal time off. If advanced annual leave is granted, the employee must have a positive annual leave balance before approving additional leave. If the employee leaves the university before attaining a positive balance, the remaining hours are deducted from their last paycheck.",
+   "reports": {},
+   "sources": [
+    "Attendance HR Policies for Employees.pdf"
+   ],
+   "judge": {
+    "passed": true,
+    "why": "The answer directly addresses the question about the policy for annual leave."
+   },
+   "secs": 16.7,
+   "tokens": 1042
+  },
+  {
+   "case": "Q1",
+   "arm": "multi",
+   "question": "What is the policy for annual leave?",
+   "answer": "The policy for annual leave is as follows:\n\n* Employees are entitled to use their previous USF accrued time to determine eligibility for a higher leave accrual rate, effective October 5, 2003.\n* Payment for unused annual leave will be made up to the allowable maximum upon transfer from an annual leave-accruing position to a non-annual leave-accruing position.\n* The supervisory authority has the power to approve or disapprove the use of annual leave.\n* Annual leave may not be used prior to being accrued and credited to the employee, except in cases where approval is granted in accordance with the provisions for advancing annual leave.\n* The University President or designee has the authority to approve the advancement of annual leave.",
+   "reports": {
+    "plan": {
+     "policy_query": "annual leave policy",
+     "needs_eligibility": false,
+     "employee_id": null
+    },
+    "policy_worker": "Here are the relevant policy facts for annual leave:\n\n* Employees are entitled to use their previous USF accrued time to determine eligibility for a higher leave accrual rate, effective October 5, 2003.\n* Payment for unused annual leave will be made up to the allowable maximum upon transfer from an annual leave-accruing position to a non-annual leave-accruing position.\n* The supervisory authority has the power to approve or disapprove the use of annual leave.\n* Annual leave may not be used prior to being accrued and credited to the employee, except in cases where approval is granted in accordance with the provisions for advancing annual leave.\n* The University President or designee has the authority to approve the advancement of annual leave.\n\nSource files:\n[Attendance HR Policies for Employees.pdf p.17]\n[Attendance HR Policies for Employees.pdf p.18]\n[HR Policy Service Rules.pdf p.6]",
+    "eligibility_worker": "(not requested)"
+   },
+   "sources": [
+    "Attendance HR Policies for Employees.pdf",
+    "HR Policy Service Rules.pdf"
+   ],
+   "judge": {
+    "passed": true,
+    "why": "The answer directly addresses the question about the policy for annual leave."
+   },
+   "secs": 45.29,
+   "tokens": 1635
+  },
+  {
+   "case": "Q2",
+   "arm": "multi",
+   "question": "What are the core work hours?",
+   "answer": "I cannot answer this because the uploaded documents do not contain the required information.",
+   "reports": {
+    "plan": {
+     "policy_query": "core work hours",
+     "needs_eligibility": false,
+     "employee_id": null
+    },
+    "policy_worker": "Here are the core work hours relevant to the policy:\n\n* The core work hours are not explicitly defined in the provided policies, but it can be inferred that core work hours refer to the regular working hours of an employee.\n* According to the HR Policy to Serve Train Educate Peoples.pdf, the administrative expenses of the NGO are considered as the core programme.\n* The HR Policy Service Rules.pdf defines the annual work plan for faculty, which includes the teaching schedule, including class credits and student numbers.\n* The core work hours are not explicitly mentioned in the provided policies, but it can be inferred that they refer to the regular working hours of an employee.\n* NO RELEVANT POLICY FOUND",
+    "eligibility_worker": "(not requested)"
+   },
+   "sources": [
+    "HR Policy Service Rules.pdf",
+    "HR Policy to Serve Train Educate Peoples.pdf"
+   ],
+   "judge": {
+    "passed": false,
+    "why": "false refusal on a retrieval case"
+   },
+   "secs": 27.24,
+   "tokens": 1344
+  },
+  {
+   "case": "Q2",
+   "arm": "single",
+   "question": "What are the core work hours?",
+   "answer": "I cannot answer this because the uploaded documents do not contain the required information.",
+   "reports": {},
+   "sources": [
+    "HR Policy Service Rules.pdf",
+    "HR Policy to Serve Train Educate Peoples.pdf"
+   ],
+   "judge": {
+    "passed": false,
+    "why": "false refusal on a retrieval case"
+   },
+   "secs": 9.85,
+   "tokens": 954
+  },
+  {
+   "case": "Q3",
+   "arm": "single",
+   "question": "Who is eligible for internet reimbursement?",
+   "answer": "According to the HR Policy for Open Market Personnel, employees who are deployed to SeMTs and whose work entails them to be accessible at all times are eligible for internet reimbursement.",
+   "reports": {},
+   "sources": [
+    "HR Policy Open Market Personel.pdf",
+    "HR Policy to Serve Train Educate Peoples.pdf"
+   ],
+   "judge": {
+    "passed": true,
+    "why": "SeMT employees deployed to SeMTs are eligible for internet reimbursement."
+   },
+   "secs": 11.85,
+   "tokens": 1008
+  },
+  {
+   "case": "Q3",
+   "arm": "multi",
+   "question": "Who is eligible for internet reimbursement?",
+   "answer": "No one is eligible for internet reimbursement.",
+   "reports": {
+    "plan": {
+     "policy_query": "internet reimbursement eligibility",
+     "needs_eligibility": true,
+     "employee_id": null
+    },
+    "policy_worker": "Here are the relevant policy facts for internet reimbursement eligibility:\n\n* Employees on regular roll of the Company in JRL LH & above and PE & above, including probationers excluding trainees, are eligible for internet reimbursement (Source: HR Policy Handbook.pdf, p.15)\n* Reimbursement for internet expenses is limited to ` 5000/- per institution for JRL LC & above and PC & above, and ` 1000/- per institution for JRL LD to LH and PD & below (Source: HR Policy Handbook.pdf, p.15)\n* Employees must be appropriately authorized by the organization to use the Internet or access additional software (Source: HR Policy to Serve Train Educate Peoples.pdf, p.26)\n* Internet use is authorized for conducting organization activities only (Source: HR Policy to Serve Train Educate Peoples.pdf, p.26)\n* Members of Serve Train Educate People\u2019s Society, Srikalahasti are eligible for internet reimbursement (Source: HR Policy to Serve Train Educate Peoples.pdf, p.26)\n\nNO RELEVANT POLICY FOUND",
+    "eligibility_worker": "Based on the policy findings, no one is eligible for internet reimbursement as there are no employees on the regular roll of the Company."
+   },
+   "sources": [
+    "HR Policy Handbook.pdf",
+    "HR Policy Open Market Personel.pdf",
+    "HR Policy to Serve Train Educate Peoples.pdf"
+   ],
+   "judge": {
+    "passed": false,
+    "why": "Employee 'NONE' not found in HRIS records."
+   },
+   "secs": 52.14,
+   "tokens": 2516
+  },
+  {
+   "case": "Q4",
+   "arm": "multi",
+   "question": "How many vacation days do faculty members get?",
+   "answer": "Faculty members are entitled to 60 days of vacation leave, which can be taken in two spells: a 45-day summer vacation and a 15-day winter vacation.",
+   "reports": {
+    "plan": {
+     "policy_query": "faculty vacation days",
+     "needs_eligibility": false,
+     "employee_id": null
+    },
+    "policy_worker": "Here are the relevant policy facts for faculty vacation days:\n\n* Faculty members are entitled to 60 days of vacation leave, which can be taken in two spells: a 45-day summer vacation from April 21st to June 4th, and a 15-day winter vacation from December 16th to December 30th. [HR Policy Service Rules.pdf p.76]\n* The vacation period not availed by faculty members will be converted into earned leave, with 10 days of summer vacation credited as 5 days of earned leave. [HR Policy Service Rules.pdf p.76]\n* Vacation can be combined with other types of leave, and the combined spell will be reckoned as earned leave for the purpose of applying the limit on earned leave. [HR Policy Service Rules.pdf p.75]\n* Faculty members are required to be present as per the class schedule, and may be asked to serve in different shifts and on weekdays as per requirements. [HR Policy Service Rules.pdf p.75]\n* The \"year\" refers to twelve months of actual duty, not the calendar year. [HR Policy Service Rules.pdf p.76]\n\nNote: These policies are specific to IIM Raipur and may not be applicable to other institutions.",
+    "eligibility_worker": "(not requested)"
+   },
+   "sources": [
+    "HR Policy Service Rules.pdf"
+   ],
+   "judge": {
+    "passed": true,
+    "why": "The answer directly addresses the question."
+   },
+   "secs": 39.67,
+   "tokens": 1657
+  },
+  {
+   "case": "Q4",
+   "arm": "single",
+   "question": "How many vacation days do faculty members get?",
+   "answer": "Faculty members at IIM Raipur are entitled to 60 days of vacation, which can be divided into two spells: a 45-day summer vacation from April 21st to June 4th, and a 15-day winter vacation from December 16th to December 30th.",
+   "reports": {},
+   "sources": [
+    "HR Policy Service Rules.pdf"
+   ],
+   "judge": {
+    "passed": true,
+    "why": "The answer directly addresses the question."
+   },
+   "secs": 14.16,
+   "tokens": 1065
+  },
+  {
+   "case": "Q5",
+   "arm": "single",
+   "question": "Can I take educational leave?",
+   "answer": "You are eligible for educational leave with pay for the purpose of furthering your education, research, or professional development. The leave can be full-time or part-time, depending on the purpose of the leave, and normally does not exceed six months. You will need to obtain approval from your supervisor and follow the university's policies and procedures for requesting and taking educational leave.",
+   "reports": {},
+   "sources": [
+    "Attendance HR Policies for Employees.pdf"
+   ],
+   "judge": {
+    "passed": true,
+    "why": "The answer directly addresses the question."
+   },
+   "secs": 14.58,
+   "tokens": 1019
+  },
+  {
+   "case": "Q5",
+   "arm": "multi",
+   "question": "Can I take educational leave?",
+   "answer": "Yes, you are eligible for educational leave with pay for purposes such as research, experiential, developmental, or exchange programs, but the duration would be limited to six months.",
+   "reports": {
+    "plan": {
+     "policy_query": "educational leave",
+     "needs_eligibility": true,
+     "employee_id": null
+    },
+    "policy_worker": "Here are the relevant policy facts about educational leave:\n\n* You can take educational leave with pay for purposes such as research, experiential, developmental, or exchange programs. (Source: [Attendance HR Policies for Employees.pdf p.40])\n* The purpose of this leave is to increase your value to the university through enhanced opportunities for professional renewal, educational travel, study, formal education, research, writing, exchange programs, or other experience of professional value. (Source: [Attendance HR Policies for Employees.pdf p.40])\n* Professional/educational development leave may be full-time or part-time, depending on the purpose of the leave, and normally does not exceed six months. (Source: [Attendance HR Policies for Employees.pdf p.41])\n* Sabbaticals are awarded annually by the Provost and are available to full-time, tenured faculty employees who have at least six years of full-time service at USF. (Source: [Attendance HR Policies for Employees.pdf p.40])",
+    "eligibility_worker": "Based on the policy findings, it appears that you are eligible for educational leave. However, since you are not a full-time, tenured faculty employee, you are not eligible for a sabbatical. You may be eligible for educational leave with pay for purposes such as research, experiential, developmental, or exchange programs, but the duration of the leave would be limited to six months."
+   },
+   "sources": [
+    "Attendance HR Policies for Employees.pdf"
+   ],
+   "judge": {
+    "passed": true,
+    "why": "The evidence supports the claim that educational leave with pay is available for certain purposes."
+   },
+   "secs": 52.32,
+   "tokens": 2546
+  },
+  {
+   "case": "Q6",
+   "arm": "multi",
+   "question": "What happens if I am late to work 3 times?",
+   "answer": "If an employee is late to work 3 times, it may be considered a pattern of tardiness, which can lead to disciplinary action, up to and including a written warning or suspension.",
+   "reports": {
+    "plan": {
+     "policy_query": "late to work 3 times",
+     "needs_eligibility": false,
+     "employee_id": null
+    },
+    "policy_worker": "Here are the relevant policy facts for being late to work 3 times:\n\n* If an employee is late to work 3 times, it may be considered a pattern of tardiness, which can lead to disciplinary action. (Source: [Attendance HR Policies for Employees.pdf p.15])\n* The employee's manager/supervisor must be notified at least 24 hours in advance for any planned absence or late arrival. (Source: [Attendance HR Policies for Employees.pdf p.12])\n* If an employee is late to work, they are expected to notify their manager as soon as possible, either in person, by voice mail, or by text message. (Source: [Attendance HR Policies for Employees.pdf p.14])\n* Repeated instances of tardiness may result in disciplinary action, up to and including a written warning or suspension. (Source: [Attendance HR Policies for Employees.pdf p.15])\n* The employee's attendance and leave policy may be reviewed and updated as necessary to address any patterns of tardiness or absenteeism. (Source: [Attendance HR Policies for Employees.pdf p.14])",
+    "eligibility_worker": "(not requested)"
+   },
+   "sources": [
+    "Attendance HR Policies for Employees.pdf"
+   ],
+   "judge": {
+    "passed": true,
+    "why": "The employee's repeated tardiness may be considered a pattern of behavior."
+   },
+   "secs": 41.72,
+   "tokens": 1624
+  },
+  {
+   "case": "Q6",
+   "arm": "single",
+   "question": "What happens if I am late to work 3 times?",
+   "answer": "If you are late to work 3 times, it may result in a written warning and/or a disciplinary action, such as a suspension or termination, depending on the company's attendance policy and the severity of the tardiness. The exact consequences will depend on the specific policy and the manager's discretion.",
+   "reports": {},
+   "sources": [
+    "Attendance HR Policies for Employees.pdf"
+   ],
+   "judge": {
+    "passed": true,
+    "why": "the answer directly addresses the question"
+   },
+   "secs": 14.75,
+   "tokens": 1068
+  },
+  {
+   "case": "Q7",
+   "arm": "single",
+   "question": "Is maternity leave paid?",
+   "answer": "Maternity leave is paid, and eligible female employees are entitled to 12 weeks of leave. The leave is subject to a minimum of 80 days of working in 12 months immediately preceding the date of confinement.",
+   "reports": {},
+   "sources": [
+    "HR Policy Handbook.pdf",
+    "HR Policy Service Rules.pdf"
+   ],
+   "judge": {
+    "passed": false,
+    "why": "expected doc not retrieved (got ['HR Policy Handbook.pdf', 'HR Policy Service Rules.pdf'])"
+   },
+   "secs": 13.22,
+   "tokens": 1107
+  },
+  {
+   "case": "Q7",
+   "arm": "multi",
+   "question": "Is maternity leave paid?",
+   "answer": "Maternity leave is paid, with the employee's monthly basic salary being considered for calculation.",
+   "reports": {
+    "plan": {
+     "policy_query": "maternity leave paid",
+     "needs_eligibility": false,
+     "employee_id": null
+    },
+    "policy_worker": "Here are the relevant policy facts about maternity leave paid:\n\n* Maternity leave is provided for 12 weeks to female employees who legally adopt a child below three months of age or are a commissioning mother. (Source: [HR Policy Handbook.pdf p.13])\n* Female employees covered under the ESI act are eligible for maternity benefit as per the amendment to the ESI act. (Source: [HR Policy Handbook.pdf p.13])\n* Maternity leave is paid, with the employee's monthly basic salary being considered for calculation. (Source: [HR Policy Handbook.pdf p.13])\n* The employee can encash the accrued maternity leave after completion of the maternity leave period. (Source: [HR Policy Handbook.pdf p.13])\n* The employee can also avail half pay leave for maternity purposes. (Source: [HR Policy Handbook.pdf p.13])",
+    "eligibility_worker": "(not requested)"
+   },
+   "sources": [
+    "HR Policy Handbook.pdf",
+    "HR Policy Service Rules.pdf"
+   ],
+   "judge": {
+    "passed": false,
+    "why": "expected doc not retrieved (got ['HR Policy Handbook.pdf', 'HR Policy Service Rules.pdf'])"
+   },
+   "secs": 32.32,
+   "tokens": 1544
+  },
+  {
+   "case": "Q8",
+   "arm": "multi",
+   "question": "How do I apply for a promotion?",
+   "answer": "To apply for a promotion, contact the Office of Human Resources (ext. 2541) to discuss promotion or transfer possibilities. They will guide you through the process and provide more information on the next steps.",
+   "reports": {
+    "plan": {
+     "policy_query": "promotion application",
+     "needs_eligibility": true,
+     "employee_id": null
+    },
+    "policy_worker": "Here are the relevant policy facts for applying for a promotion:\n\n* All University employees are encouraged to apply for positions for which they are interested on a promotion or transfer basis (Office of HR Policy.pdf p.21).\n* Supervisors are encouraged to give serious consideration to internal applicants in the search process (Office of HR Policy.pdf p.21).\n* Employees within their department should be given opportunities to seek transfers to other departments (Office of HR Policy.pdf p.21).\n* Persons who wish to discuss promotion or transfer possibilities should call the Office of Human Resources (ext. 2541) (Office of HR Policy.pdf p.22).\n* The University of Dayton's promotion policy ensures opportunity for internal mobility consistent with equal employment opportunity and affirmative action (Office of HR Policy.pdf p.22).\n\nNote: These policies are outlined in the Office of HR Policy document, specifically sections 21 and 22.",
+    "eligibility_worker": "Since there is no employee ID provided, you are not eligible for a promotion at this time. However, you can start by contacting the Office of Human Resources (ext. 2541) to discuss promotion or transfer possibilities. They will guide you through the process and provide more information on the next steps."
+   },
+   "sources": [
+    "Office of HR Policy.pdf"
+   ],
+   "judge": {
+    "passed": false,
+    "why": "answered instead of refusing"
+   },
+   "secs": 46.14,
+   "tokens": 2395
+  },
+  {
+   "case": "Q8",
+   "arm": "single",
+   "question": "How do I apply for a promotion?",
+   "answer": "To apply for a promotion, follow these steps:\n\n1. Review the University's Promotion Policy for Professional and Support Staff to understand the requirements and procedures.\n2. Discuss your career goals and interests with your supervisor to determine if there are opportunities for promotion or transfer within your department.\n3. Meet the minimum qualifications for the position you are interested in applying for, as outlined in the job description.\n4. Gather all required documents, such as updated resumes and cover letters, and be prepared to discuss your qualifications and experience.\n5. Submit your application through the University's online system or by contacting the Office of Human Resources (ext. 2541) to discuss your application.\n6. Be prepared for an interview with your supervisor and/or other members of the search committee.\n7. If selected, be prepared to negotiate salary and benefits.\n\nAdditionally, the University encourages internal applicants and provides opportunities for career counseling and testing through the Career Services Center (ext. 2077).",
+   "reports": {},
+   "sources": [
+    "Office of HR Policy.pdf"
+   ],
+   "judge": {
+    "passed": false,
+    "why": "answered instead of refusing"
+   },
+   "secs": 22.49,
+   "tokens": 1087
+  },
+  {
+   "case": "Q9",
+   "arm": "single",
+   "question": "What is the dress code for casual Fridays?",
+   "answer": "For Casual Fridays, the dress code is to select attire that is clean and in good condition and present a professional image. This means employees can dress in a more relaxed, casual style, but still maintain a professional appearance.",
+   "reports": {},
+   "sources": [
+    "HR Policy Handbook.pdf",
+    "HR Policy Service Rules.pdf"
+   ],
+   "judge": {
+    "passed": true,
+    "why": "The policy states employees must present a professional image at all times."
+   },
+   "secs": 12.3,
+   "tokens": 1014
+  },
+  {
+   "case": "Q9",
+   "arm": "multi",
+   "question": "What is the dress code for casual Fridays?",
+   "answer": "I cannot answer this because the uploaded documents do not contain the required information.",
+   "reports": {
+    "plan": {
+     "policy_query": "casual Fridays dress code",
+     "needs_eligibility": false,
+     "employee_id": null
+    },
+    "policy_worker": "Here are the relevant policy facts for Casual Fridays dress code:\n\n* The dress code for Casual Fridays is to present a professional image at all times. (HR Policy Handbook.pdf p.11)\n* Employees are expected to select attire that is clean and in good condition. (HR Policy Handbook.pdf p.11)\n* The goal of the dress code policy is to foster a professional environment in the workplace. (HR Policy Handbook.pdf p.11)\n* The policy applies to all regular employees and employees on contract. (HR Policy Handbook.pdf p.11)\n* There is no specific detail on what is considered acceptable attire for Casual Fridays, but the overall goal is to maintain a professional image. \n\nNO RELEVANT POLICY FOUND",
+    "eligibility_worker": "(not requested)"
+   },
+   "sources": [
+    "HR Policy Handbook.pdf"
+   ],
+   "judge": {
+    "passed": false,
+    "why": "false refusal on a retrieval case"
+   },
+   "secs": 29.13,
+   "tokens": 1383
+  },
+  {
+   "case": "Q10",
+   "arm": "multi",
+   "question": "Can I bring my dog to the office?",
+   "answer": "I cannot answer this because the uploaded documents do not contain the required information.",
+   "reports": {
+    "plan": {
+     "policy_query": "dog in office",
+     "needs_eligibility": false,
+     "employee_id": null
+    },
+    "policy_worker": "NO RELEVANT POLICY FOUND.",
+    "eligibility_worker": "(not requested)"
+   },
+   "sources": [
+    "Attendance HR Policies for Employees.pdf",
+    "Office of HR Policy.pdf"
+   ],
+   "judge": {
+    "passed": true,
+    "why": "correct refusal"
+   },
+   "secs": 17.02,
+   "tokens": 1119
+  },
+  {
+   "case": "Q10",
+   "arm": "single",
+   "question": "Can I bring my dog to the office?",
+   "answer": "I cannot answer this because the uploaded documents do not contain the required information.",
+   "reports": {},
+   "sources": [
+    "Attendance HR Policies for Employees.pdf",
+    "Office of HR Policy.pdf"
+   ],
+   "judge": {
+    "passed": true,
+    "why": "correct refusal"
+   },
+   "secs": 10.13,
+   "tokens": 984
+  }
+ ],
+ "handoffs": [
+  {
+   "case": "Q1",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 1,
+   "prompt": 387,
+   "completion": 15,
+   "total": 402,
+   "secs": 3.3
+  },
+  {
+   "case": "Q1",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 2,
+   "prompt": 537,
+   "completion": 103,
+   "total": 640,
+   "secs": 13.26
+  },
+  {
+   "case": "Q1",
+   "arm": "multi",
+   "handoff": "user -> orchestrator (decompose)",
+   "turn": 1,
+   "prompt": 113,
+   "completion": 24,
+   "total": 137,
+   "secs": 3.89
+  },
+  {
+   "case": "Q1",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 1,
+   "prompt": 258,
+   "completion": 16,
+   "total": 274,
+   "secs": 3.35
+  },
+  {
+   "case": "Q1",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 2,
+   "prompt": 604,
+   "completion": 186,
+   "total": 790,
+   "secs": 20.57
+  },
+  {
+   "case": "Q1",
+   "arm": "multi",
+   "handoff": "workers -> orchestrator (synthesis)",
+   "turn": 1,
+   "prompt": 284,
+   "completion": 150,
+   "total": 434,
+   "secs": 17.48
+  },
+  {
+   "case": "Q2",
+   "arm": "multi",
+   "handoff": "user -> orchestrator (decompose)",
+   "turn": 1,
+   "prompt": 112,
+   "completion": 24,
+   "total": 136,
+   "secs": 3.79
+  },
+  {
+   "case": "Q2",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 1,
+   "prompt": 257,
+   "completion": 16,
+   "total": 273,
+   "secs": 3.31
+  },
+  {
+   "case": "Q2",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 2,
+   "prompt": 543,
+   "completion": 139,
+   "total": 682,
+   "secs": 15.3
+  },
+  {
+   "case": "Q2",
+   "arm": "multi",
+   "handoff": "workers -> orchestrator (synthesis)",
+   "turn": 1,
+   "prompt": 237,
+   "completion": 16,
+   "total": 253,
+   "secs": 4.84
+  },
+  {
+   "case": "Q2",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 1,
+   "prompt": 386,
+   "completion": 16,
+   "total": 402,
+   "secs": 3.39
+  },
+  {
+   "case": "Q2",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 2,
+   "prompt": 536,
+   "completion": 16,
+   "total": 552,
+   "secs": 6.45
+  },
+  {
+   "case": "Q3",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 1,
+   "prompt": 386,
+   "completion": 15,
+   "total": 401,
+   "secs": 3.42
+  },
+  {
+   "case": "Q3",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 2,
+   "prompt": 571,
+   "completion": 36,
+   "total": 607,
+   "secs": 8.43
+  },
+  {
+   "case": "Q3",
+   "arm": "multi",
+   "handoff": "user -> orchestrator (decompose)",
+   "turn": 1,
+   "prompt": 112,
+   "completion": 24,
+   "total": 136,
+   "secs": 3.78
+  },
+  {
+   "case": "Q3",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 1,
+   "prompt": 257,
+   "completion": 20,
+   "total": 277,
+   "secs": 3.63
+  },
+  {
+   "case": "Q3",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 2,
+   "prompt": 575,
+   "completion": 218,
+   "total": 793,
+   "secs": 24.42
+  },
+  {
+   "case": "Q3",
+   "arm": "multi",
+   "handoff": "orchestrator -> eligibility_worker",
+   "turn": 1,
+   "prompt": 532,
+   "completion": 16,
+   "total": 548,
+   "secs": 8.87
+  },
+  {
+   "case": "Q3",
+   "arm": "multi",
+   "handoff": "orchestrator -> eligibility_worker",
+   "turn": 2,
+   "prompt": 387,
+   "completion": 27,
+   "total": 414,
+   "secs": 6.61
+  },
+  {
+   "case": "Q3",
+   "arm": "multi",
+   "handoff": "workers -> orchestrator (synthesis)",
+   "turn": 1,
+   "prompt": 339,
+   "completion": 9,
+   "total": 348,
+   "secs": 4.83
+  },
+  {
+   "case": "Q4",
+   "arm": "multi",
+   "handoff": "user -> orchestrator (decompose)",
+   "turn": 1,
+   "prompt": 114,
+   "completion": 24,
+   "total": 138,
+   "secs": 3.84
+  },
+  {
+   "case": "Q4",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 1,
+   "prompt": 259,
+   "completion": 16,
+   "total": 275,
+   "secs": 3.34
+  },
+  {
+   "case": "Q4",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 2,
+   "prompt": 606,
+   "completion": 252,
+   "total": 858,
+   "secs": 25.08
+  },
+  {
+   "case": "Q4",
+   "arm": "multi",
+   "handoff": "workers -> orchestrator (synthesis)",
+   "turn": 1,
+   "prompt": 351,
+   "completion": 35,
+   "total": 386,
+   "secs": 7.41
+  },
+  {
+   "case": "Q4",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 1,
+   "prompt": 388,
+   "completion": 17,
+   "total": 405,
+   "secs": 3.46
+  },
+  {
+   "case": "Q4",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 2,
+   "prompt": 600,
+   "completion": 60,
+   "total": 660,
+   "secs": 10.69
+  },
+  {
+   "case": "Q5",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 1,
+   "prompt": 385,
+   "completion": 16,
+   "total": 401,
+   "secs": 3.48
+  },
+  {
+   "case": "Q5",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 2,
+   "prompt": 544,
+   "completion": 74,
+   "total": 618,
+   "secs": 11.09
+  },
+  {
+   "case": "Q5",
+   "arm": "multi",
+   "handoff": "user -> orchestrator (decompose)",
+   "turn": 1,
+   "prompt": 111,
+   "completion": 24,
+   "total": 135,
+   "secs": 3.82
+  },
+  {
+   "case": "Q5",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 1,
+   "prompt": 255,
+   "completion": 16,
+   "total": 271,
+   "secs": 3.32
+  },
+  {
+   "case": "Q5",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 2,
+   "prompt": 550,
+   "completion": 201,
+   "total": 751,
+   "secs": 20.55
+  },
+  {
+   "case": "Q5",
+   "arm": "multi",
+   "handoff": "orchestrator -> eligibility_worker",
+   "turn": 1,
+   "prompt": 514,
+   "completion": 16,
+   "total": 530,
+   "secs": 5.33
+  },
+  {
+   "case": "Q5",
+   "arm": "multi",
+   "handoff": "orchestrator -> eligibility_worker",
+   "turn": 2,
+   "prompt": 369,
+   "completion": 80,
+   "total": 449,
+   "secs": 11.39
+  },
+  {
+   "case": "Q5",
+   "arm": "multi",
+   "handoff": "workers -> orchestrator (synthesis)",
+   "turn": 1,
+   "prompt": 373,
+   "completion": 37,
+   "total": 410,
+   "secs": 7.9
+  },
+  {
+   "case": "Q6",
+   "arm": "multi",
+   "handoff": "user -> orchestrator (decompose)",
+   "turn": 1,
+   "prompt": 117,
+   "completion": 27,
+   "total": 144,
+   "secs": 4.23
+  },
+  {
+   "case": "Q6",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 1,
+   "prompt": 265,
+   "completion": 23,
+   "total": 288,
+   "secs": 3.88
+  },
+  {
+   "case": "Q6",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 2,
+   "prompt": 603,
+   "completion": 224,
+   "total": 827,
+   "secs": 26.13
+  },
+  {
+   "case": "Q6",
+   "arm": "multi",
+   "handoff": "workers -> orchestrator (synthesis)",
+   "turn": 1,
+   "prompt": 326,
+   "completion": 39,
+   "total": 365,
+   "secs": 7.48
+  },
+  {
+   "case": "Q6",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 1,
+   "prompt": 391,
+   "completion": 23,
+   "total": 414,
+   "secs": 4.0
+  },
+  {
+   "case": "Q6",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 2,
+   "prompt": 593,
+   "completion": 61,
+   "total": 654,
+   "secs": 10.74
+  },
+  {
+   "case": "Q7",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 1,
+   "prompt": 384,
+   "completion": 16,
+   "total": 400,
+   "secs": 3.35
+  },
+  {
+   "case": "Q7",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 2,
+   "prompt": 663,
+   "completion": 44,
+   "total": 707,
+   "secs": 9.86
+  },
+  {
+   "case": "Q7",
+   "arm": "multi",
+   "handoff": "user -> orchestrator (decompose)",
+   "turn": 1,
+   "prompt": 110,
+   "completion": 25,
+   "total": 135,
+   "secs": 3.91
+  },
+  {
+   "case": "Q7",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 1,
+   "prompt": 255,
+   "completion": 17,
+   "total": 272,
+   "secs": 3.36
+  },
+  {
+   "case": "Q7",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 2,
+   "prompt": 671,
+   "completion": 176,
+   "total": 847,
+   "secs": 19.7
+  },
+  {
+   "case": "Q7",
+   "arm": "multi",
+   "handoff": "workers -> orchestrator (synthesis)",
+   "turn": 1,
+   "prompt": 271,
+   "completion": 19,
+   "total": 290,
+   "secs": 5.35
+  },
+  {
+   "case": "Q8",
+   "arm": "multi",
+   "handoff": "user -> orchestrator (decompose)",
+   "turn": 1,
+   "prompt": 113,
+   "completion": 23,
+   "total": 136,
+   "secs": 3.77
+  },
+  {
+   "case": "Q8",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 1,
+   "prompt": 257,
+   "completion": 15,
+   "total": 272,
+   "secs": 3.27
+  },
+  {
+   "case": "Q8",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 2,
+   "prompt": 497,
+   "completion": 182,
+   "total": 679,
+   "secs": 18.5
+  },
+  {
+   "case": "Q8",
+   "arm": "multi",
+   "handoff": "orchestrator -> eligibility_worker",
+   "turn": 1,
+   "prompt": 497,
+   "completion": 16,
+   "total": 513,
+   "secs": 4.87
+  },
+  {
+   "case": "Q8",
+   "arm": "multi",
+   "handoff": "orchestrator -> eligibility_worker",
+   "turn": 2,
+   "prompt": 352,
+   "completion": 62,
+   "total": 414,
+   "secs": 8.4
+  },
+  {
+   "case": "Q8",
+   "arm": "multi",
+   "handoff": "workers -> orchestrator (synthesis)",
+   "turn": 1,
+   "prompt": 338,
+   "completion": 43,
+   "total": 381,
+   "secs": 7.33
+  },
+  {
+   "case": "Q8",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 1,
+   "prompt": 387,
+   "completion": 15,
+   "total": 402,
+   "secs": 3.22
+  },
+  {
+   "case": "Q8",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 2,
+   "prompt": 491,
+   "completion": 194,
+   "total": 685,
+   "secs": 19.26
+  },
+  {
+   "case": "Q9",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 1,
+   "prompt": 388,
+   "completion": 16,
+   "total": 404,
+   "secs": 3.35
+  },
+  {
+   "case": "Q9",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 2,
+   "prompt": 565,
+   "completion": 45,
+   "total": 610,
+   "secs": 8.95
+  },
+  {
+   "case": "Q9",
+   "arm": "multi",
+   "handoff": "user -> orchestrator (decompose)",
+   "turn": 1,
+   "prompt": 114,
+   "completion": 26,
+   "total": 140,
+   "secs": 4.02
+  },
+  {
+   "case": "Q9",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 1,
+   "prompt": 260,
+   "completion": 18,
+   "total": 278,
+   "secs": 3.52
+  },
+  {
+   "case": "Q9",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 2,
+   "prompt": 555,
+   "completion": 147,
+   "total": 702,
+   "secs": 16.57
+  },
+  {
+   "case": "Q9",
+   "arm": "multi",
+   "handoff": "workers -> orchestrator (synthesis)",
+   "turn": 1,
+   "prompt": 247,
+   "completion": 16,
+   "total": 263,
+   "secs": 5.03
+  },
+  {
+   "case": "Q10",
+   "arm": "multi",
+   "handoff": "user -> orchestrator (decompose)",
+   "turn": 1,
+   "prompt": 114,
+   "completion": 24,
+   "total": 138,
+   "secs": 3.82
+  },
+  {
+   "case": "Q10",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 1,
+   "prompt": 259,
+   "completion": 16,
+   "total": 275,
+   "secs": 3.35
+  },
+  {
+   "case": "Q10",
+   "arm": "multi",
+   "handoff": "orchestrator -> policy_worker",
+   "turn": 2,
+   "prompt": 573,
+   "completion": 9,
+   "total": 582,
+   "secs": 6.38
+  },
+  {
+   "case": "Q10",
+   "arm": "multi",
+   "handoff": "workers -> orchestrator (synthesis)",
+   "turn": 1,
+   "prompt": 108,
+   "completion": 16,
+   "total": 124,
+   "secs": 3.46
+  },
+  {
+   "case": "Q10",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 1,
+   "prompt": 388,
+   "completion": 15,
+   "total": 403,
+   "secs": 3.31
+  },
+  {
+   "case": "Q10",
+   "arm": "single",
+   "handoff": "user -> single_agent",
+   "turn": 2,
+   "prompt": 565,
+   "completion": 16,
+   "total": 581,
+   "secs": 6.82
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "HR Policy Squad Orchestrator",
+  "description": "Orchestrator that decomposes an employee HR question, delegates to a policy-retrieval worker and an eligibility-calculation worker, and synthesises one answer.",
+  "url": "https://hr-squad.example.internal/a2a",
+  "version": "0.1.0",
+  "provider": { "organization": "Soft Suave HR Tech", "url": "https://example.internal/hr" },
+  "capabilities": { "streaming": false, "pushNotifications": false, "stateTransitionHistory": true },
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["text/plain", "application/json"],
+  "securitySchemes": {
+    "bearerAuth": { "type": "http", "scheme": "bearer", "description": "Scoped token; the leave-only scope is denied grade-band lookups (same scoping as the Week 9 gateway)." }
+  },
+  "security": [{ "bearerAuth": [] }],
+  "skills": [
+    {
+      "id": "policy-lookup",
+      "name": "HR policy lookup",
+      "description": "Answer a policy question from the HR policy PDFs with source file citations; refuses when the documents do not contain the answer.",
+      "tags": ["hr", "policy", "rag"],
+      "examples": ["What are the core work hours?", "Is maternity leave paid?"],
+      "inputModes": ["text/plain"],
+      "outputModes": ["text/plain"]
+    },
+    {
+      "id": "leave-eligibility",
+      "name": "Leave eligibility check",
+      "description": "Check whether a specific employee qualifies for a leave type using HRIS grade band and accrued balance. Needs an employee ID; asks for the grade band if HRIS cannot supply it.",
+      "tags": ["hr", "eligibility", "hris"],
+      "examples": ["Can EMP001 take 12 days of annual leave?"],
+      "inputModes": ["text/plain", "application/json"],
+      "outputModes": ["application/json"]
+    }
+  ]
+}

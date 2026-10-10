@@ -6,6 +6,7 @@ import os
 import sys
 
 from src.mcp_agent import MCPAgent
+import week10_ui
 
 PORT = 8080
 
@@ -32,6 +33,14 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             with open('index.html', 'rb') as f:
                 self.wfile.write(f.read())
+        elif parsed.path == '/week10':
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html; charset=utf-8')
+            self.end_headers()
+            with open('week10.html', 'rb') as f:
+                self.wfile.write(f.read())
+        elif parsed.path == '/api/week10/results':
+            self._json(200, week10_ui.saved_results())
         elif parsed.path == '/api/tools':
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
@@ -52,9 +61,26 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         else:
             super().do_GET()
 
+    def _json(self, code, payload):
+        self.send_response(code)
+        self.send_header('Content-type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        self.wfile.write(json.dumps(payload).encode('utf-8'))
+
     def do_POST(self):
         parsed = urllib.parse.urlparse(self.path)
-        if parsed.path == '/api/query':
+        if parsed.path == '/api/week10/compare':
+            length = int(self.headers.get('Content-Length', 0))
+            try:
+                data = json.loads(self.rfile.read(length).decode('utf-8'))
+            except Exception:
+                data = {}
+            try:
+                self._json(200, week10_ui.live_compare(data.get('question', ''), bool(data.get('inject500'))))
+            except Exception as e:
+                self._json(500, {"error": str(e)})
+        elif parsed.path == '/api/query':
             content_length = int(self.headers.get('Content-Length', 0))
             post_data = self.rfile.read(content_length)
             

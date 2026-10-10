@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 10: Single Agent vs Policy Squad</title>
+<style>
+:root{--bg:#090d16;--card:rgba(17,24,39,.85);--border:rgba(255,255,255,.08);--primary:#3b82f6;--emerald:#10b981;--amber:#f59e0b;--rose:#ef4444;--text:#f8fafc;--muted:#94a3b8;--sub:#64748b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 50% 0%,#172554 0%,var(--bg) 65%);color:var(--text);min-height:100vh;padding:24px 16px}
+.wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+h1{font-size:22px}h2{font-size:15px;margin-bottom:10px}
+nav a{color:var(--muted);text-decoration:none;font-size:13px;margin-left:14px;padding:6px 10px;border-radius:8px;border:1px solid var(--border)}
+nav a.on{color:var(--text);border-color:var(--primary)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border)}
+th{color:var(--muted);font-weight:600}
+.win{color:var(--emerald);font-weight:600}.lose{color:var(--rose)}
+.big{font-size:13px;color:var(--muted)}
+.mult{font-size:15px;margin-top:12px;padding:10px 12px;border-left:3px solid var(--amber);background:rgba(245,158,11,.08);border-radius:6px}
+.bar{height:10px;border-radius:5px;background:var(--primary);min-width:2px}
+.row{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:12px}
+.row .lbl{width:300px;color:var(--muted)}.row .track{flex:1;background:rgba(255,255,255,.05);border-radius:5px}
+.pass{color:var(--emerald)}.fail{color:var(--rose)}
+tr.case{cursor:pointer}tr.case:hover{background:rgba(255,255,255,.03)}
+.detail{display:none;font-size:12px;color:var(--muted);background:rgba(0,0,0,.25)}
+.detail td{white-space:pre-wrap}
+input[type=text]{flex:1;min-width:240px;background:rgba(15,23,42,.9);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:10px;font-size:14px}
+button{background:var(--primary);color:#fff;border:0;border-radius:10px;padding:10px 16px;font-size:13px;cursor:pointer}
+button.ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
+button:disabled{opacity:.5;cursor:wait}
+.ctl{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.cols{grid-template-columns:1fr}.row .lbl{width:150px}}
+.col{background:rgba(0,0,0,.2);border:1px solid var(--border);border-radius:12px;padding:14px;font-size:13px}
+.col h3{font-size:14px;margin-bottom:8px}.ans{margin:8px 0;padding:10px;background:rgba(255,255,255,.04);border-radius:8px;line-height:1.5}
+.kv{color:var(--muted);font-size:12px}.kv b{color:var(--text)}
+pre{white-space:pre-wrap;font-size:12px;color:var(--muted);font-family:"JetBrains Mono",Consolas,monospace}
+.verdict{border-left:3px solid var(--rose)}
+label.chk{font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Week 10: Single Agent vs Policy Squad</h1>
+  <nav><a href="/">Week 9 · MCP agent</a><a class="on" href="/week10">Week 10 · Multi-agent race</a></nav>
+</header>
+
+<div class="card">
+  <h2>Live race: same question, both arms</h2>
+  <div class="ctl">
+    <input type="text" id="q" placeholder="Ask an HR question...">
+    <button id="go" onclick="live()">Race them</button>
+  </div>
+  <div class="ctl">
+    <button class="ghost" onclick="preset('What is the policy for annual leave?')">Policy question</button>
+    <button class="ghost" onclick="preset('Can EMP001 take annual leave? What is their grade band and accrued leave balance?')">Employee ID question</button>
+    <button class="ghost" onclick="preset('What is the policy for annual leave?',true)">Annual leave + inject 500</button>
+    <label class="chk"><input type="checkbox" id="inj"> Inject HTTP 500 into policy search</label>
+  </div>
+  <div class="big" id="status">Local llama3.2: expect about 15 s for the single agent and 30 to 60 s for the squad.</div>
+  <div class="cols" id="liveout" style="margin-top:12px"></div>
+</div>
+
+<div class="card" id="saved-card">
+  <h2>Official race: Week-6 Q1-Q10, one pass per arm</h2>
+  <div id="saved">Loading...</div>
+</div>
+</div>
+
+<script>
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const f1=x=>x.toFixed(1);
+function preset(q,inj){document.getElementById('q').value=q;document.getElementById('inj').checked=!!inj;}
+
+function bars(pairs,total){return pairs.map(([n,t])=>`<div class="row"><span class="lbl">${esc(n)}</span><span class="track"><div class="bar" style="width:${100*t/total}%"></div></span><span>${t} (${Math.round(100*t/total)}%)</span></div>`).join('');}
+
+async function live(){
+  const q=document.getElementById('q').value.trim(); if(!q)return;
+  const btn=document.getElementById('go'),st=document.getElementById('status'),out=document.getElementById('liveout');
+  btn.disabled=true; out.innerHTML=''; st.textContent='Running single agent, then the squad (sequential, so timings are fair)...';
+  try{
+    const r=await fetch('/api/week10/compare',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q,inject500:document.getElementById('inj').checked})});
+    const d=await r.json(); if(d.error)throw new Error(d.error);
+    const S=d.single,M=d.multi;
+    const col=(title,a,other)=>{
+      const tot=a.tokens;const by={};a.handoffs.forEach(h=>by[h.handoff]=(by[h.handoff]||0)+h.total);
+      return `<div class="col"><h3>${title}</h3>
+        <div class="kv">time <b class="${a.secs<=other.secs?'win':'lose'}">${f1(a.secs)} s</b> · tokens <b class="${a.tokens<=other.tokens?'win':'lose'}">${a.tokens}</b> (${a.prompt} in + ${a.completion} out) · ref. cost <b>$${a.cost.toFixed(6)}</b></div>
+        <div class="ans">${esc(a.answer)||'(empty)'}</div>
+        ${a.tool_errors.length?`<div class="kv" style="color:var(--rose)">Tool errors: ${esc(a.tool_errors.join('; '))}</div>`:''}
+        <div class="kv" style="margin-top:8px">Hand-offs (tokens):</div>${bars(Object.entries(by),tot)}
+        ${Object.keys(a.reports).length?`<details style="margin-top:8px"><summary class="kv">Worker reports (what was passed on)</summary><pre>${esc(JSON.stringify(a.reports,null,1))}</pre></details>`:''}
+      </div>`;};
+    out.innerHTML=col('Single agent',S,M)+col('Orchestrator + 2 workers',M,S);
+    st.innerHTML=`Squad used <b>${(M.tokens/S.tokens).toFixed(1)}x</b> the tokens and took <b>${(M.secs/S.secs).toFixed(1)}x</b> the time. Compare the two answers for facts dropped at a hand-off.`;
+  }catch(e){st.textContent='Error: '+e.message;}
+  btn.disabled=false;
+}
+
+async function loadSaved(){
+  const el=document.getElementById('saved');
+  const d=await (await fetch('/api/week10/results')).json();
+  if(!d.available){el.textContent='No results yet. Run: python week10_race.py';return;}
+  const S=d.arms.single,M=d.arms.multi;
+  const better=(a,b,lowerWins)=>lowerWins?(a<=b):(a>=b);
+  const cell=(v,win)=>`<td class="${win?'win':'lose'}">${v}</td>`;
+  let h=`<table><tr><th>Metric</th><th>Single agent</th><th>Orchestrator + 2 workers</th></tr>
+   <tr><td>Pass rate (same judge)</td>${cell(`${S.pass}/${S.n}`,S.pass>=M.pass)}${cell(`${M.pass}/${M.n}`,M.pass>=S.pass)}</tr>
+   <tr><td>Latency p50</td>${cell(f1(S.p50)+' s',S.p50<=M.p50)}${cell(f1(M.p50)+' s',M.p50<=S.p50)}</tr>
+   <tr><td>Latency p99 (n=10, about the max)</td>${cell(f1(S.p99)+' s',S.p99<=M.p99)}${cell(f1(M.p99)+' s',M.p99<=S.p99)}</tr>
+   <tr><td>Total tokens</td>${cell(S.tokens,S.tokens<=M.tokens)}${cell(M.tokens,M.tokens<=S.tokens)}</tr>
+   <tr><td>Cost per question (reference $${d.price.in}/$${d.price.out} per 1M)</td>${cell('$'+S.cost_q.toFixed(5),S.cost_q<=M.cost_q)}${cell('$'+M.cost_q.toFixed(5),M.cost_q<=S.cost_q)}</tr></table>`;
+  const top=M.handoffs[0];
+  h+=`<div class="mult">Context re-send multiplier: <b>${d.multiplier.toFixed(1)}x</b>. Largest share: <b>${esc(top[0])}</b>, ${Math.round(100*top[1]/M.tokens)}% of all multi-arm tokens.</div>`;
+  h+=`<h2 style="margin-top:16px">Where the squad's tokens went</h2>`+bars(M.handoffs,M.tokens);
+  h+=`<h2 style="margin-top:16px">Per case (click a row for the answers)</h2><table><tr><th>Case</th><th>Question</th><th>Single</th><th>Multi</th></tr>`;
+  Object.entries(d.cases).forEach(([id,c])=>{
+    const m=x=>`<span class="${x.passed?'pass':'fail'}">${x.passed?'PASS':'FAIL'}</span> ${f1(x.secs)}s · ${x.tokens}t`;
+    h+=`<tr class="case" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='table-row'?'none':'table-row'"><td>${id}</td><td>${esc(c.question)}</td><td>${m(c.single)}</td><td>${m(c.multi)}</td></tr>
+    <tr class="detail"><td colspan="4">SINGLE (${esc(c.single.why)}):\n${esc(c.single.answer)}\n\nMULTI (${esc(c.multi.why)}):\n${esc(c.multi.answer)}</td></tr>`;
+  });
+  h+='</table>';
+  if(d.failure){const m=d.failure.multi;
+    h+=`<h2 style="margin-top:16px">Injected failure: HTTP 500 on the policy worker (Q1)</h2>
+    <div class="kv">Policy search calls: <b>${m.search_calls.length}</b> (no retry) · worker report: <b>${esc(m.reports.policy_worker)}</b> · invented numbers: <b>${m.numbers_not_from_any_tool.length}</b></div>
+    <div class="ans">${esc(m.answer)}</div><div class="kv">Behaviour: <b>degraded to a refusal</b>. Not a retry, not a lie, but the outage was reported as missing content.</div>`;}
+  h+=`<div class="card verdict" style="margin-top:16px"><h2>Verdict</h2><pre>${esc(d.verdict)}</pre></div>`;
+  el.innerHTML=h;
+}
+loadSaved();
+</script>
+</body>
+</html>

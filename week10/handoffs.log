@@ -1,0 +1,79 @@
+# handoffs.log  (one row per LLM call; a hand-off is who sent context to whom)
+# columns: case | arm | hand-off | turn | prompt_tokens | completion_tokens | total | secs
+Q1 | single | user -> single_agent | turn 1 | 387 | 15 | 402 | 3.3
+Q1 | single | user -> single_agent | turn 2 | 537 | 103 | 640 | 13.26
+Q1 | multi | user -> orchestrator (decompose) | turn 1 | 113 | 24 | 137 | 3.89
+Q1 | multi | orchestrator -> policy_worker | turn 1 | 258 | 16 | 274 | 3.35
+Q1 | multi | orchestrator -> policy_worker | turn 2 | 604 | 186 | 790 | 20.57
+Q1 | multi | workers -> orchestrator (synthesis) | turn 1 | 284 | 150 | 434 | 17.48
+Q2 | multi | user -> orchestrator (decompose) | turn 1 | 112 | 24 | 136 | 3.79
+Q2 | multi | orchestrator -> policy_worker | turn 1 | 257 | 16 | 273 | 3.31
+Q2 | multi | orchestrator -> policy_worker | turn 2 | 543 | 139 | 682 | 15.3
+Q2 | multi | workers -> orchestrator (synthesis) | turn 1 | 237 | 16 | 253 | 4.84
+Q2 | single | user -> single_agent | turn 1 | 386 | 16 | 402 | 3.39
+Q2 | single | user -> single_agent | turn 2 | 536 | 16 | 552 | 6.45
+Q3 | single | user -> single_agent | turn 1 | 386 | 15 | 401 | 3.42
+Q3 | single | user -> single_agent | turn 2 | 571 | 36 | 607 | 8.43
+Q3 | multi | user -> orchestrator (decompose) | turn 1 | 112 | 24 | 136 | 3.78
+Q3 | multi | orchestrator -> policy_worker | turn 1 | 257 | 20 | 277 | 3.63
+Q3 | multi | orchestrator -> policy_worker | turn 2 | 575 | 218 | 793 | 24.42
+Q3 | multi | orchestrator -> eligibility_worker | turn 1 | 532 | 16 | 548 | 8.87
+Q3 | multi | orchestrator -> eligibility_worker | turn 2 | 387 | 27 | 414 | 6.61
+Q3 | multi | workers -> orchestrator (synthesis) | turn 1 | 339 | 9 | 348 | 4.83
+Q4 | multi | user -> orchestrator (decompose) | turn 1 | 114 | 24 | 138 | 3.84
+Q4 | multi | orchestrator -> policy_worker | turn 1 | 259 | 16 | 275 | 3.34
+Q4 | multi | orchestrator -> policy_worker | turn 2 | 606 | 252 | 858 | 25.08
+Q4 | multi | workers -> orchestrator (synthesis) | turn 1 | 351 | 35 | 386 | 7.41
+Q4 | single | user -> single_agent | turn 1 | 388 | 17 | 405 | 3.46
+Q4 | single | user -> single_agent | turn 2 | 600 | 60 | 660 | 10.69
+Q5 | single | user -> single_agent | turn 1 | 385 | 16 | 401 | 3.48
+Q5 | single | user -> single_agent | turn 2 | 544 | 74 | 618 | 11.09
+Q5 | multi | user -> orchestrator (decompose) | turn 1 | 111 | 24 | 135 | 3.82
+Q5 | multi | orchestrator -> policy_worker | turn 1 | 255 | 16 | 271 | 3.32
+Q5 | multi | orchestrator -> policy_worker | turn 2 | 550 | 201 | 751 | 20.55
+Q5 | multi | orchestrator -> eligibility_worker | turn 1 | 514 | 16 | 530 | 5.33
+Q5 | multi | orchestrator -> eligibility_worker | turn 2 | 369 | 80 | 449 | 11.39
+Q5 | multi | workers -> orchestrator (synthesis) | turn 1 | 373 | 37 | 410 | 7.9
+Q6 | multi | user -> orchestrator (decompose) | turn 1 | 117 | 27 | 144 | 4.23
+Q6 | multi | orchestrator -> policy_worker | turn 1 | 265 | 23 | 288 | 3.88
+Q6 | multi | orchestrator -> policy_worker | turn 2 | 603 | 224 | 827 | 26.13
+Q6 | multi | workers -> orchestrator (synthesis) | turn 1 | 326 | 39 | 365 | 7.48
+Q6 | single | user -> single_agent | turn 1 | 391 | 23 | 414 | 4.0
+Q6 | single | user -> single_agent | turn 2 | 593 | 61 | 654 | 10.74
+Q7 | single | user -> single_agent | turn 1 | 384 | 16 | 400 | 3.35
+Q7 | single | user -> single_agent | turn 2 | 663 | 44 | 707 | 9.86
+Q7 | multi | user -> orchestrator (decompose) | turn 1 | 110 | 25 | 135 | 3.91
+Q7 | multi | orchestrator -> policy_worker | turn 1 | 255 | 17 | 272 | 3.36
+Q7 | multi | orchestrator -> policy_worker | turn 2 | 671 | 176 | 847 | 19.7
+Q7 | multi | workers -> orchestrator (synthesis) | turn 1 | 271 | 19 | 290 | 5.35
+Q8 | multi | user -> orchestrator (decompose) | turn 1 | 113 | 23 | 136 | 3.77
+Q8 | multi | orchestrator -> policy_worker | turn 1 | 257 | 15 | 272 | 3.27
+Q8 | multi | orchestrator -> policy_worker | turn 2 | 497 | 182 | 679 | 18.5
+Q8 | multi | orchestrator -> eligibility_worker | turn 1 | 497 | 16 | 513 | 4.87
+Q8 | multi | orchestrator -> eligibility_worker | turn 2 | 352 | 62 | 414 | 8.4
+Q8 | multi | workers -> orchestrator (synthesis) | turn 1 | 338 | 43 | 381 | 7.33
+Q8 | single | user -> single_agent | turn 1 | 387 | 15 | 402 | 3.22
+Q8 | single | user -> single_agent | turn 2 | 491 | 194 | 685 | 19.26
+Q9 | single | user -> single_agent | turn 1 | 388 | 16 | 404 | 3.35
+Q9 | single | user -> single_agent | turn 2 | 565 | 45 | 610 | 8.95
+Q9 | multi | user -> orchestrator (decompose) | turn 1 | 114 | 26 | 140 | 4.02
+Q9 | multi | orchestrator -> policy_worker | turn 1 | 260 | 18 | 278 | 3.52
+Q9 | multi | orchestrator -> policy_worker | turn 2 | 555 | 147 | 702 | 16.57
+Q9 | multi | workers -> orchestrator (synthesis) | turn 1 | 247 | 16 | 263 | 5.03
+Q10 | multi | user -> orchestrator (decompose) | turn 1 | 114 | 24 | 138 | 3.82
+Q10 | multi | orchestrator -> policy_worker | turn 1 | 259 | 16 | 275 | 3.35
+Q10 | multi | orchestrator -> policy_worker | turn 2 | 573 | 9 | 582 | 6.38
+Q10 | multi | workers -> orchestrator (synthesis) | turn 1 | 108 | 16 | 124 | 3.46
+Q10 | single | user -> single_agent | turn 1 | 388 | 15 | 403 | 3.31
+Q10 | single | user -> single_agent | turn 2 | 565 | 16 | 581 | 6.82
+
+# TOTAL by hand-off, arm=single
+user -> single_agent: 10348 tokens (100% of single total 10348)
+
+# TOTAL by hand-off, arm=multi
+orchestrator -> policy_worker: 10266 tokens (58% of multi total 17763)
+workers -> orchestrator (synthesis): 3254 tokens (18% of multi total 17763)
+orchestrator -> eligibility_worker: 2868 tokens (16% of multi total 17763)
+user -> orchestrator (decompose): 1375 tokens (8% of multi total 17763)
+
+Context re-send multiplier: 1.7x (multi 17763 tokens / single 10348 tokens). Largest share: orchestrator -> policy_worker, 58% of all multi-arm tokens.
